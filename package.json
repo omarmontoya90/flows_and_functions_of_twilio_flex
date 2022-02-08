@@ -1,0 +1,8 @@
+{
+  "name": "flows_and_functions_of_twilio_flex",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
