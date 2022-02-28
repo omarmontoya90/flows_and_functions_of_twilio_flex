@@ -1,2 +1,6 @@
 # Ignore all logfiles and tempfiles.
 *.swp
+.env
+
+# Dependency directories
+node_modules/

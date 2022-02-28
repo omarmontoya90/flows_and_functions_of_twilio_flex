@@ -6,14 +6,8 @@
         "type": "trigger",
         "transitions": [
           {
-            "next": "welcome",
+            "next": "WelcomeInitial",
             "event": "incomingMessage"
-          },
-          {
-            "event": "incomingCall"
-          },
-          {
-            "event": "incomingRequest"
           }
         ],
         "properties": {
@@ -24,7 +18,7 @@
         }
       },
       {
-        "name": "Welcome",
+        "name": "WelcomeInitial",
         "type": "send-and-wait-for-reply",
         "transitions": [
           {

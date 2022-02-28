@@ -1,7 +1,14 @@
+const path = require('path');
+const { isEqual } = require('lodash');
+const fs = require('fs').promises;
+require('dotenv').config()
+const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN } = process.env
+const client = require('twilio')(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
+
 async function run() {
   const filePath = path.resolve(__dirname, '../flows/BGT_Flow.json');
   const flow = JSON.parse(await fs.readFile(filePath, 'utf8'));
-  const friendlyName = 'BGT_Flow.json';
+  const friendlyName = 'BGT_Flow';
 
   try {
     await client.studio.flowValidate.update({
@@ -24,6 +31,7 @@ async function run() {
     const newFlow = await client.studio.flows.create({
       definition: flow,
       friendlyName,
+      commitMessage: "first flow",
       status: 'published',
     });
     console.log('New Flow', newFlow.webhookUrl);
